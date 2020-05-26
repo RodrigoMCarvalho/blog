@@ -11,13 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("posts")
+@RequestMapping("blog")
 public class BlogController {
 
     @Autowired
     private BlogService blogService;
 
-    @GetMapping
+    @GetMapping("posts")
     public ModelAndView getPost() {
         ModelAndView mv = new ModelAndView("posts");
         List<Post> posts = blogService.findAll();
