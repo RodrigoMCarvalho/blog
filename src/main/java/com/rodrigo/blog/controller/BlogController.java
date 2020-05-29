@@ -47,6 +47,7 @@ public class BlogController {
     @PostMapping("newpost")
     public String savePost(@Valid Post post, BindingResult result, RedirectAttributes attr) {
         if(result.hasErrors()) {
+            attr.addFlashAttribute("mensagem","Verifique os campos obrigatórios.");
             return "redirect:/blog/newpost";
         }
         post.setData(LocalDate.now());
